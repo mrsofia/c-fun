@@ -1,6 +1,7 @@
 *.tar.*
 valgrind*
 /build
+db.dat
 
 # Created by https://www.gitignore.io/api/c
 
