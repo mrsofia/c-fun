@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
   // first way using indexing
   for(i = 0; i < count; i++) {
     printf("%s has %d years alive.\n",
-            names[i], ages[i]);
+            *(names+i), *(ages+i));
   }
 
   printf("---\n");
@@ -47,5 +47,15 @@ int main(int argc, char *argv[])
   {
     printf("%s lived %d years so far.\n",
             *cur_name, *cur_age);
+  }
+
+  for (i = 0; i < count; i++) {
+    // prints 4 because int is 4 bytes on my system
+    printf("*(ages+i)is %d, address of *(ages+i) is %p.\n", *(ages+i), (ages+i));
+  }
+  for (i = 0; i < count; i++) {
+    // prints 8 because names[i] is an 64-bit (8 byte) pointer
+    printf("sizeof names is %lu.\n", sizeof(names[i]));
+    printf("*(names+i) is %s, address of *(names+i) is %p.\n", *(names+i), (names+i));
   }
 }
